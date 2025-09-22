@@ -1,0 +1,12 @@
+{
+    "name": "LevelInputSystem",
+    "maps": [
+        {
+            "name": "LevelActionMap",
+            "id": "612e2f97-14c8-4f89-93bc-a67705b37ae0",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
