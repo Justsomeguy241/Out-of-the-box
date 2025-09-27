@@ -52,69 +52,79 @@ config:
   look: neo
 ---
 graph TD
-    subgraph "Game Initialization"
-        Start([Game Start])
-        Boot[Boot Layer]
-        SaveCheck{Save Data<br/>Exists?}
-    end
-    subgraph "Main Menu System"
-        MM[Main Menu]
-        Settings[Settings Menu]
-        LevelSelect[Level Select]
-    end
-    subgraph "Gameplay Flow"
-        GP[Gameplay Scene]
-        Pause[Pause Menu]
-        Teleport[Teleportation System]
-        AbilityUnlock[Ability Unlock]
-    end
-    subgraph "Level Progression"
-        Level1[Level 1]
-        Level2[Level 2]
-        Level3[Level 3]
-        MoreLevels[...]
-    end
-    subgraph "End States"
-        GameOver[Game Over]
-        LevelComplete[Level Complete]
-        ES[End Screen]
-    end
-    Start --> Boot
-    Boot --> SaveCheck
+    %% Initialization & Menus
+    Start([Game Start])
+    Boot[Boot Layer]
+    SaveCheck{Save Data?}
+    MM[Main Menu]
+    Settings[Settings]
+    LevelSelect[Level Select]
+
+    %% Gameplay Core
+    GP[Gameplay Scene]
+    Switch[Character Switching System]
+    Puzzle[Puzzle & Physics System]
+    Platforming[Platforming System]
+    Flip[Level Flip System]
+
+    %% Characters
+    Fox[Fox Abilities<br/>Double Jump, Push/Pull]
+    Crow[Crow Abilities<br/>Fly, Carry Boxes]
+
+    %% UI & States
+    Pause[Pause Menu]
+    Victory[Victory Screen]
+    GameOver[Game Over]
+
+    %% Level Progression
+    Level1[Level 1]
+    Level2[Level 2]
+    Level3[Level 3]
+    MoreLevels[...]
+
+    %% Flows
+    Start --> Boot --> SaveCheck
     SaveCheck -->|No Save| MM
     SaveCheck -->|Has Save| LevelSelect
     MM -->|Play| GP
-    MM -->|Settings| Settings
-    MM -->|Level Select| LevelSelect
+    MM --> Settings
+    MM --> LevelSelect
     Settings --> MM
     LevelSelect --> GP
+
+    GP --> Switch
+    Switch --> Fox
+    Switch --> Crow
+    GP --> Puzzle
+    GP --> Platforming
+    GP --> Flip
+
     GP --> Pause
-    GP --> Teleport
-    GP --> AbilityUnlock
     Pause -->|Resume| GP
     Pause -->|Main Menu| MM
-    Teleport --> GP
-    AbilityUnlock --> GP
-    GP --> Level1
-    Level1 -->|Complete| Level2
-    Level2 -->|Complete| Level3
-    Level3 -->|Complete| MoreLevels
-    GP -->|Death/Failure| GameOver
-    GP -->|Level Complete| LevelComplete
-    LevelComplete -->|Continue| GP
-    GameOver --> ES
-    ES -->|Start Over| GP
-    ES -->|Main Menu| MM
+
+    GP -->|Complete| Victory
+    GP -->|Fail| GameOver
+    Victory --> LevelSelect
+    GameOver --> LevelSelect
+
+    GP --> Level1 --> Level2 --> Level3 --> MoreLevels
+
+    %% Styles
     classDef initStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     classDef menuStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
     classDef gameplayStyle fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef levelStyle fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    classDef endStyle fill:#ffebee,stroke:#b71c1c,stroke-width:2px
+    classDef charStyle fill:#fff8e1,stroke:#f57f17,stroke-width:2px
+    classDef uiStyle fill:#ffebee,stroke:#b71c1c,stroke-width:2px
+    classDef levelStyle fill:#ede7f6,stroke:#311b92,stroke-width:2px
+
     class Start,Boot,SaveCheck initStyle
     class MM,Settings,LevelSelect menuStyle
-    class GP,Pause,Teleport,AbilityUnlock gameplayStyle
+    class GP,Switch,Puzzle,Platforming,Flip gameplayStyle
+    class Fox,Crow charStyle
+    class Pause,Victory,GameOver uiStyle
     class Level1,Level2,Level3,MoreLevels levelStyle
-    class GameOver,LevelComplete,ES endStyle
+
 
 ```
 
