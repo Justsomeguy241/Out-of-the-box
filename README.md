@@ -93,6 +93,7 @@ graph TD
     Level2 --> GP
     Level3 --> GP
     GP --> Victory
+    Victory --> GP
 
     %% Gameplay Systems
     GP --> Switch
