@@ -52,6 +52,7 @@ graph TD
     Boot[Boot Layer]
     MM[Main Menu]
     Settings[Settings]
+    LevelSelect[Level Select]
 
     %% Gameplay Core
     GP[Gameplay Scene]
@@ -76,21 +77,24 @@ graph TD
 
     %% Flows
     Start --> Boot --> MM
-    MM -->|Play| Tutorial
-    MM --> Settings
+    MM -->|Settings| Settings
+    MM -->|Level Select| LevelSelect
     Settings --> MM
 
-    Tutorial -->|Complete| Level1
-    Level1 -->|Complete| Level2
-    Level2 -->|Complete| Level3
-    Level3 -->|Complete| Victory
+    %% Level Select leads to any level
+    LevelSelect --> Tutorial
+    LevelSelect --> Level1
+    LevelSelect --> Level2
+    LevelSelect --> Level3
 
     %% Levels connect to Gameplay
     Tutorial --> GP
     Level1 --> GP
     Level2 --> GP
     Level3 --> GP
+    GP --> Victory
 
+    %% Gameplay Systems
     GP --> Switch
     Switch --> Fox
     Switch --> Crow
@@ -98,9 +102,11 @@ graph TD
     GP --> Platforming
     GP --> Flip
 
+    %% Pause Menu
     GP --> Pause
     Pause -->|Resume| GP
     Pause -->|Main Menu| MM
+
 
 ```
 
