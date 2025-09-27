@@ -35,13 +35,15 @@ Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. Y
 flowchart LR
   mm[Main Menu]
   gp[Gameplay]
-  es[End Screen]
+  vs[Victory Screen]
   pm[Pause Menu]
 
   mm -- "Click Play" --> gp
-  gp -- "Finish Level" --> es
-  es -- "Main Menu" --> mm
+  gp -- "Finish Level" --> vs
+  vs -- "Main Menu" --> mm
   gp -- "Pause" --> pm
+  pm -- "Resume" --> gp
+   
 
 ```
 ## Layer / module Design 
