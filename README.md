@@ -1,6 +1,6 @@
 ## Developer & Contributions
 
-Muhammad Rafi R (Game Developer & Systems Designer)
+adxze (Game Developer & Systems Designer)
   <br>
 
 ## About
