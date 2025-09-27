@@ -36,10 +36,12 @@ flowchart LR
   mm[Main Menu]
   gp[Gameplay]
   es[End Screen]
+  pm[Pause Menu]
 
   mm -- "Click Play" --> gp
   gp -- "Finish Level" --> es
   es -- "Main Menu" --> mm
+  gp -- "Pause" --> pm
 
 ```
 ## Layer / module Design 
