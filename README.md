@@ -43,13 +43,9 @@ flowchart LR
    
 
 ```
-## Layer / module Design 
+## Layer / Module Design 
 
----
-config:
-  theme: neutral
-  look: neo
----
+```mermaid
 graph TD
     %% Initialization & Menus
     Start([Game Start])
@@ -99,22 +95,6 @@ graph TD
     GP --> Pause
     Pause -->|Resume| GP
     Pause -->|Main Menu| MM
-
-    %% Styles
-    classDef initStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef menuStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef gameplayStyle fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef charStyle fill:#fff8e1,stroke:#f57f17,stroke-width:2px
-    classDef uiStyle fill:#ffebee,stroke:#b71c1c,stroke-width:2px
-    classDef levelStyle fill:#ede7f6,stroke:#311b92,stroke-width:2px
-
-    class Start,Boot initStyle
-    class MM,Settings menuStyle
-    class GP,Switch,Puzzle,Platforming,Flip gameplayStyle
-    class Fox,Crow charStyle
-    class Pause,Victory uiStyle
-    class Tutorial,Level1,Level2,Level3 levelStyle
-
 ```
 
 
