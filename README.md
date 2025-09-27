@@ -85,6 +85,12 @@ graph TD
     Level2 -->|Complete| Level3
     Level3 -->|Complete| Victory
 
+    %% Levels connect to Gameplay
+    Tutorial --> GP
+    Level1 --> GP
+    Level2 --> GP
+    Level3 --> GP
+
     GP --> Switch
     Switch --> Fox
     Switch --> Crow
@@ -95,6 +101,7 @@ graph TD
     GP --> Pause
     Pause -->|Resume| GP
     Pause -->|Main Menu| MM
+
 ```
 
 
