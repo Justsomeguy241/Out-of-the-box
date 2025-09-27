@@ -116,19 +116,23 @@ graph TD
 
 The advanced 2D platformer mechanics including progressive ability unlocks, teleportation system, level management, and dynamic audio are powered by a comprehensive scripting system that creates a unique gameplay experience.
 
-| 📂 Name              | 🎬 Scene                       | 📋 Responsibility                                                                                                               |
-| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| **MainMenu**         | **Main Menu**                  | - Show main menu UI<br/>- Allow player to select Tutorial, Level 1, Level 2, or Level 3<br/>- Exit game when player quits       |
-| **Settings**         | **Main Menu**<br/>**Gameplay** | - Show settings menu (UI)<br/>- Configure audio volume<br/>- Adjust basic game preferences                                      |
-| **AudioSystem**      | **Main Menu**<br/>**Gameplay** | - Play background music & sound effects<br/>- Adjust or mute audio based on settings                                            |
-| **PlayerController** | **Gameplay**                   | - Handle movement & physics for both characters<br/>- Manage input for Fox and Crow<br/>- Enable switching between Fox and Crow |
-| **FoxModule**        | **Gameplay**                   | - Allow double jump<br/>- Push & pull boxes                                                                                     |
-| **CrowModule**       | **Gameplay**                   | - Enable flight<br/>- Carry boxes to higher platforms (except heavy boxes)                                                      |
-| **PuzzleSystem**     | **Gameplay**                   | - Manage box interactions and puzzle logic<br/>- Detect puzzle completion triggers                                              |
-| **FlipSystem**       | **Gameplay**                   | - Trigger level flip/rotation events<br/>- Change layout and open new routes                                                    |
-| **LevelManager**     | **Gameplay**                   | - Handle level loading (Tutorial, L1, L2, L3)<br/>- Manage transitions between levels<br/>- Track level completion              |
-| **PauseMenu**        | **Gameplay**                   | - Show pause menu<br/>- Resume gameplay or return to main menu                                                                  |
-| **VictoryScreen**    | **Victory Screen**             | - Display when a level is completed<br/>- Allow return to Main Menu or Level Select                                             |
+| 📂 Name                    | 🎬 Scene      | 📋 Responsibility                                                                                                                                       |
+| -------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GameManager**            | **Gameplay**  | - Oversees game state (playing, paused, level complete)<br/>- Connects systems like level completion and transitions                                    |
+| **AudioManager**           | **Global**    | - Handles background music (OST) and sound effects (SFX)<br/>- Controls volume and muting                                                               |
+| **MainMenu**               | **Main Menu** | - Displays the main menu UI<br/>- Lets player choose Tutorial, Level 1, Level 2, or Level 3<br/>- Provides buttons for starting, settings, and quitting |
+| **OptionsPanel**           | **Main Menu** | - Adjusts audio settings<br/>- Applies user preferences                                                                                                 |
+| **Levels Panel**           | **Main Menu** | - Level selection screen<br/>- Directly loads the chosen level                                                                                          |
+| **Canvas / UI (Gameplay)** | **Gameplay**  | - Displays HUD elements<br/>- Shows panels like **LevelCompletePanel** and Pause Menu                                                                   |
+| **Rotator (Flip System)**  | **Gameplay**  | - Handles level flipping/rotation<br/>- Dynamically changes the layout and reveals new routes                                                           |
+| **Puzzle Objects (Grid)**  | **Gameplay**  | - Contains puzzle elements:<br/>PopupWalls, Levers, Buttons, Doors<br/>- Reacts to player interactions to unlock paths                                  |
+| **LargeMoveableBox**       | **Gameplay**  | - Heavy interactable object<br/>- Can be pushed/pulled by the Fox<br/>- Too heavy for the Crow                                                          |
+| **SmallTrash**             | **Gameplay**  | - Light objects<br/>- Can be carried by the Crow                                                                                                        |
+| **Fox**                    | **Gameplay**  | - Playable character<br/>- Wall jump, push, pull objects                                                                                              |
+| **Crow**                   | **Gameplay**  | - Playable character<br/>- Fly and carry light objects                                                                                                  |
+| **FoxAndCrowDetector**     | **Gameplay**  | - Detects when both characters reach the exit<br/>- Triggers level completion                                                                           |
+| **ExitDoorR**              | **Gameplay**  | - Level exit<br/>- Works with FoxAndCrowDetector to trigger victory state                                                                               |
+
 
 
 
