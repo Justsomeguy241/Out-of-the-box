@@ -116,19 +116,20 @@ graph TD
 
 The advanced 2D platformer mechanics including progressive ability unlocks, teleportation system, level management, and dynamic audio are powered by a comprehensive scripting system that creates a unique gameplay experience.
 
-| 📂 Name | 🎬 Scene | 📋 Responsibility |
-|---------|----------|-------------------|
-| **MainMenu** | **Main Menu** | - Show main menu UI<br/>- Load gameplay scene when player click play button<br/>- Exit game when player exit the game |
-| **Setting** | **Main Menu**<br/>**Gameplay** | - Show setting menu (UI)<br/>- Set audio settings<br/>- Configure game preferences |
-| **Audio** | **Main Menu**<br/>**Gameplay** | - Play audio (BGM & SFX)<br/>- Set audio volume<br/>- Set audio mute & unmute |
-| **PlayerController** | **Gameplay** | - Move player with progressive abilities<br/>- Handle double jump, wall jump, sprint, dash, slide<br/>- Process player input and physics |
-| **TeleportationSystem** | **Gameplay** | - Handle teleportation between portals using J key<br/>- Manage teleporter activation and cooldowns<br/>- Support moving teleporters with waypoints |
-| **LevelManager** | **Gameplay** | - Manage level progression and boundaries<br/>- Handle camera boundaries and transitions<br/>- Activate teleporters based on context |
-| **GameplayMenu** | **Gameplay** | - Handle and show pause game<br/>- Go to main menu when user click main menu button<br/>- Exit game when player click exit game |
-| **GameOver** | **Gameplay** | - Show game over panel<br/>- Handle retry & return to main menu<br/>- Manage end screen transitions |
-| **PowerUpSystem** | **Gameplay** | - Store and manage power up data available in game<br/>- Spawn power ups throughout levels<br/>- Detect power up triggers and apply effects |
-| **PhysicsSystem** | **Gameplay** | - Handle directional boost pads<br/>- Apply physics-based movement forces<br/>- Manage collision detection and responses |
-| **SaveSystem** | **Persistent** | - Store setting data and game progress<br/>- Save and load setting data<br/>- Enable progress persistence across sessions |
+| 📂 Name              | 🎬 Scene                       | 📋 Responsibility                                                                                                               |
+| -------------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| **MainMenu**         | **Main Menu**                  | - Show main menu UI<br/>- Allow player to select Tutorial, Level 1, Level 2, or Level 3<br/>- Exit game when player quits       |
+| **Settings**         | **Main Menu**<br/>**Gameplay** | - Show settings menu (UI)<br/>- Configure audio volume<br/>- Adjust basic game preferences                                      |
+| **AudioSystem**      | **Main Menu**<br/>**Gameplay** | - Play background music & sound effects<br/>- Adjust or mute audio based on settings                                            |
+| **PlayerController** | **Gameplay**                   | - Handle movement & physics for both characters<br/>- Manage input for Fox and Crow<br/>- Enable switching between Fox and Crow |
+| **FoxModule**        | **Gameplay**                   | - Allow double jump<br/>- Push & pull boxes                                                                                     |
+| **CrowModule**       | **Gameplay**                   | - Enable flight<br/>- Carry boxes to higher platforms (except heavy boxes)                                                      |
+| **PuzzleSystem**     | **Gameplay**                   | - Manage box interactions and puzzle logic<br/>- Detect puzzle completion triggers                                              |
+| **FlipSystem**       | **Gameplay**                   | - Trigger level flip/rotation events<br/>- Change layout and open new routes                                                    |
+| **LevelManager**     | **Gameplay**                   | - Handle level loading (Tutorial, L1, L2, L3)<br/>- Manage transitions between levels<br/>- Track level completion              |
+| **PauseMenu**        | **Gameplay**                   | - Show pause menu<br/>- Resume gameplay or return to main menu                                                                  |
+| **VictoryScreen**    | **Victory Screen**             | - Display when a level is completed<br/>- Allow return to Main Menu or Level Select                                             |
+
 
 
 <br>
