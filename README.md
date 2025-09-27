@@ -45,7 +45,6 @@ flowchart LR
 ```
 ## Layer / module Design 
 
-```mermaid
 ---
 config:
   theme: neutral
@@ -57,7 +56,6 @@ graph TD
     Boot[Boot Layer]
     MM[Main Menu]
     Settings[Settings]
-    LevelSelect[Level Select]
 
     %% Gameplay Core
     GP[Gameplay Scene]
@@ -73,21 +71,23 @@ graph TD
     %% UI & States
     Pause[Pause Menu]
     Victory[Victory Screen]
-    GameOver[Game Over]
 
     %% Level Progression
+    Tutorial[Tutorial Level]
     Level1[Level 1]
     Level2[Level 2]
     Level3[Level 3]
-    MoreLevels[...]
 
     %% Flows
     Start --> Boot --> MM
-    MM -->|Play| GP
+    MM -->|Play| Tutorial
     MM --> Settings
-    MM --> LevelSelect
     Settings --> MM
-    LevelSelect --> GP
+
+    Tutorial -->|Complete| Level1
+    Level1 -->|Complete| Level2
+    Level2 -->|Complete| Level3
+    Level3 -->|Complete| Victory
 
     GP --> Switch
     Switch --> Fox
@@ -100,13 +100,6 @@ graph TD
     Pause -->|Resume| GP
     Pause -->|Main Menu| MM
 
-    GP -->|Complete| Victory
-    GP -->|Fail| GameOver
-    Victory --> LevelSelect
-    GameOver --> LevelSelect
-
-    GP --> Level1 --> Level2 --> Level3 --> MoreLevels
-
     %% Styles
     classDef initStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
     classDef menuStyle fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
@@ -116,13 +109,11 @@ graph TD
     classDef levelStyle fill:#ede7f6,stroke:#311b92,stroke-width:2px
 
     class Start,Boot initStyle
-    class MM,Settings,LevelSelect menuStyle
+    class MM,Settings menuStyle
     class GP,Switch,Puzzle,Platforming,Flip gameplayStyle
     class Fox,Crow charStyle
-    class Pause,Victory,GameOver uiStyle
-    class Level1,Level2,Level3,MoreLevels levelStyle
-
-
+    class Pause,Victory uiStyle
+    class Tutorial,Level1,Level2,Level3 levelStyle
 
 ```
 
