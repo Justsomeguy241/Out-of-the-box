@@ -1,11 +1,11 @@
 ## Developer & Contributions
 
-adxze (Game Developer & Systems Designer)
+Muhammad Rafi R (Game Developer)
   <br>
 
 ## About
 
-WarpPlatform is a 2D platformer where you unlock new movement abilities and navigate levels using teleportation mechanics. Players progress through stages by mastering abilities like double jumping, wall jumping, dashing, and sliding while using strategic teleportation between portals to solve platforming challenges.
+Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. You can switch between the fox and crow to get through levels, each bringing their own strengths to help you along the way.The game mixes puzzle-solving and platforming, pushing you to figure out how to use both characters together to progress.
 <br>
 
 ## Key Features
