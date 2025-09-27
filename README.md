@@ -55,7 +55,6 @@ graph TD
     %% Initialization & Menus
     Start([Game Start])
     Boot[Boot Layer]
-    SaveCheck{Save Data?}
     MM[Main Menu]
     Settings[Settings]
     LevelSelect[Level Select]
@@ -83,9 +82,7 @@ graph TD
     MoreLevels[...]
 
     %% Flows
-    Start --> Boot --> SaveCheck
-    SaveCheck -->|No Save| MM
-    SaveCheck -->|Has Save| LevelSelect
+    Start --> Boot --> MM
     MM -->|Play| GP
     MM --> Settings
     MM --> LevelSelect
@@ -118,12 +115,13 @@ graph TD
     classDef uiStyle fill:#ffebee,stroke:#b71c1c,stroke-width:2px
     classDef levelStyle fill:#ede7f6,stroke:#311b92,stroke-width:2px
 
-    class Start,Boot,SaveCheck initStyle
+    class Start,Boot initStyle
     class MM,Settings,LevelSelect menuStyle
     class GP,Switch,Puzzle,Platforming,Flip gameplayStyle
     class Fox,Crow charStyle
     class Pause,Victory,GameOver uiStyle
     class Level1,Level2,Level3,MoreLevels levelStyle
+
 
 
 ```
