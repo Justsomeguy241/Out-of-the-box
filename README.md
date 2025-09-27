@@ -10,10 +10,13 @@ Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. Y
 
 ## Key Features
 
-**Physics-Based Movement**: Fast paced movement system with proper momentum, gravity, and force calculations that create smooth and responsive character control.
-
-**Teleportation Mechanics**: the unique J-key teleportation system to warp between active portals, including moving teleporters that add dynamic puzzle elements.
-
+- **Character Switching** — Swap between the fox and the crow anytime to tackle puzzles and platforming challenges.  
+- **Unique Abilities**  
+  - **Fox:** double jump, push & pull boxes to clear paths or reach new areas.  
+  - **Crow:** fly and carry boxes to higher places (some heavy boxes are too heavy for the crow).  
+- **Dynamic Levels** — Reach a trigger point and the level flips/turns, changing its shape and look and revealing new routes and puzzles.  
+- **Puzzle & Platforming Mix** — Thoughtful puzzles combined with skill-based platforming.  
+- **Teamwork Gameplay** — Combine both characters' abilities to solve puzzles and progress.
 
 <table>
   <tr>
