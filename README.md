@@ -38,8 +38,7 @@ flowchart LR
   es[End Screen]
 
   mm -- "Click Play" --> gp
-  gp -- "Game Over" --> es
-  es -- "Start Over" --> gp
+  gp -- "Finish Level" --> es
   es -- "Main Menu" --> mm
 
 ```
