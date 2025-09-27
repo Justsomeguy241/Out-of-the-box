@@ -21,7 +21,7 @@ Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. Y
 <table>
   <tr>
     <td align="left" width="50%">
-      <img width="100%" alt="gif1" src="https://github.com/adxze/adxze/blob/main/0604(2).gif">
+      <img width="100%" alt="gif1" src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif">
     </td>
     <td align="right" width="50%">
       <img width="100%" alt="gif2" src="https://github.com/adxze/adxze/blob/main/0604(3).gif">
