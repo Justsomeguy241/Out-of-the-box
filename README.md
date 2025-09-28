@@ -47,7 +47,7 @@ flowchart LR
 
 ```mermaid
 graph TD
- %% Initialization
+    %% Initialization
     Start([Game Start]) --> Boot[Boot Layer] --> MM[Main Menu]
 
     %% Main Menu Options
@@ -67,15 +67,15 @@ graph TD
     Level2 --> GP
     Level3 --> GP
 
-    %% Gameplay Systems
-    GP --> Switch[🔄 Character Switching]
-    GP --> Puzzle[🧩 Puzzle & Physics]
-    GP --> Platforming[🦊 Platforming System]
+    %% Gameplay Core (Flip as container)
     GP --> Flip[↔ Level Flip System]
 
-    %% Characters
-    Switch --> Fox[Fox: Double Jump, Push/Pull]
-    Switch --> Crow[Crow: Fly, Carry Boxes]
+    %% Inside Flip System
+    Flip --> Switch[🔄 Character Switching]
+    Switch --> Fox[🦊 Fox: Double Jump, Push/Pull]
+    Switch --> Crow[🐦 Crow: Fly, Carry Boxes]
+    Flip --> Puzzle[🧩 Puzzle & Physics]
+    Flip --> Platforming[🎯 Platforming System]
 
     %% Pause
     GP --> Pause[⏸ Pause Menu]
@@ -85,6 +85,7 @@ graph TD
     %% End Flow
     GP --> Victory[🏆 Victory Screen]
     Victory --> LevelSelect
+
     
 ```
 
