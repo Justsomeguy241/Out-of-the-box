@@ -127,38 +127,40 @@ config:
   look: neo
 ---
 flowchart TD
+  %% --- Game Start & Menu ---
   start([Game Start])
   start --> menu{Main Menu}
+
   menu -->|"Select Level"| level[Load Chosen Level]
   menu -->|"Settings"| settings[Adjust Audio/Preferences]
   menu -->|"Quit"| quit([Exit Game])
   settings --> menu
 
-  %% Gameplay Core
+  %% --- Gameplay Core ---
   level --> input{Player Input}
   input -->|"Move / Jump"| move[Apply Movement & Physics]
   input -->|"Switch Character"| switch[Switch Between Fox & Crow]
 
-  %% Character Abilities
-  switch --> foxFox[Fox: Double Jump, Push/Pull Box]
-  switch --> crowCrow[Crow: Fly, Carry Light Box]
+  %% --- Character Abilities ---
+  switch --> fox[🦊 Fox: Double Jump, Push/Pull Box]
+  switch --> crow[🐦 Crow: Fly, Carry Light Box]
 
-  %% Puzzles
+  %% --- Puzzle System ---
   move --> puzzle{Puzzle Interaction}
-  foxFox --> puzzle
-  crowCrow --> puzzle
+  fox --> puzzle
+  crow --> puzzle
 
   puzzle --> lever[Levers / Buttons / Doors]
   puzzle --> box[Moveable Boxes]
   puzzle --> wall[Popup Walls / Obstacles]
 
-  %% Flip Mechanic
+  %% --- Flip Mechanic ---
   move --> flip{Flip Triggered?}
   flip -->|Yes| doFlip[Rotate/Flip Level Layout]
-  flip -->|No| cont1[Continue Gameplay]
+  flip -->|No| cont[Continue Gameplay]
 
-  %% Exit System
-  cont1 --> exitChk{Both Fox & Crow at Exit?}
+  %% --- Exit System ---
+  cont --> exitChk{Both Fox & Crow at Exit?}
   doFlip --> exitChk
 
   exitChk -->|Yes| complete[Level Complete Panel]
@@ -166,7 +168,6 @@ flowchart TD
 
   complete --> backToSelect[Return to Level Select]
   backToSelect --> menu
-
 
 
 ```
