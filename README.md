@@ -150,30 +150,44 @@ config:
 ---
 flowchart TD
   start([Game Start])
-  start --> input{Player input}
-  input -->|"Move or Jump"| move[Apply physics movement]
-  move --> abil{Ability unlocked}
-  abil -->|Yes| doAbility[Use ability]
-  abil -->|No| cont1[Continue]
-  input -->|"Teleport key J"| tpChk[Check teleporters]
-  tpChk --> tpOK{Teleporter valid}
-  tpOK -->|Yes| doTp[Teleport player]
-  tpOK -->|No| cont2[Continue]
-  move --> hitBoost{Hit booster}
-  hitBoost -->|Yes| doBoost[Apply booster force]
-  hitBoost -->|No| cont3[Continue]
-  doAbility --> loop[Continue loop]
-  doTp --> loop
-  doBoost --> loop
-  cont1 --> collide{End reached or hazard}
-  cont2 --> collide
-  cont3 --> collide
-  loop --> collide
-  collide -->|Hazard| respawn[Respawn at checkpoint]
-  collide -->|Level end| save[Save progress]
-  respawn --> start
-  save --> next[Load next level]
-  next --> start
+  start --> menu{Main Menu}
+  menu -->|"Select Level"| level[Load Chosen Level]
+  menu -->|"Settings"| settings[Adjust Audio/Preferences]
+  menu -->|"Quit"| end([Exit Game])
+  settings --> menu
+
+  %% Gameplay Core
+  level --> input{Player Input}
+  input -->|"Move / Jump"| move[Apply Movement & Physics]
+  input -->|"Switch Character"| switch[Switch Between Fox & Crow]
+
+  %% Character Abilities
+  switch --> foxFox[Fox: Double Jump, Push/Pull Box]
+  switch --> crowCrow[Crow: Fly, Carry Light Box]
+
+  %% Puzzles
+  move --> puzzle{Puzzle Interaction}
+  foxFox --> puzzle
+  crowCrow --> puzzle
+
+  puzzle --> lever[Levers / Buttons / Doors]
+  puzzle --> box[Moveable Boxes]
+  puzzle --> wall[Popup Walls / Obstacles]
+
+  %% Flip Mechanic
+  move --> flip{Flip Triggered?}
+  flip -->|Yes| doFlip[Rotate/Flip Level Layout]
+  flip -->|No| cont1[Continue Gameplay]
+
+  %% Exit System
+  cont1 --> exitChk{Both Fox & Crow at Exit?}
+  doFlip --> exitChk
+
+  exitChk -->|Yes| complete[Level Complete Panel]
+  exitChk -->|No| input
+
+  complete --> backToSelect[Return to Level Select]
+  backToSelect --> menu
 
 
 ```
