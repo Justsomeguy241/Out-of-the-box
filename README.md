@@ -52,7 +52,7 @@ graph TD
 
     %% Main Menu Options
     MM -->|Settings| Settings[⚙ Settings]
-    MM -->|Level Select| LevelSelect[🎮 Level Select]
+    MM -->|Level Select| LevelSelect[Level Select]
     Settings --> MM
 
     %% Level Select -> Levels
@@ -71,11 +71,11 @@ graph TD
     GP --> Flip[↔ Level Flip System]
 
     %% Inside Flip System
-    Flip --> Switch[🔄 Character Switching]
-    Switch --> Fox[🦊 Fox: Double Jump, Push/Pull]
-    Switch --> Crow[🐦 Crow: Fly, Carry Boxes]
-    Flip --> Puzzle[🧩 Puzzle & Physics]
-    Flip --> Platforming[🎯 Platforming System]
+    Flip --> Switch[Character Switching]
+    Switch --> Fox[Fox: Double Jump, Push/Pull]
+    Switch --> Crow[Crow: Fly, Carry Boxes]
+    Flip --> Puzzle[Puzzle & Physics]
+    Flip --> Platforming[Platforming System]
 
     %% Pause
     GP --> Pause[⏸ Pause Menu]
@@ -83,7 +83,7 @@ graph TD
     Pause -->|Main Menu| MM
 
     %% End Flow
-    GP --> Victory[🏆 Victory Screen]
+    GP --> Victory[Victory Screen]
     Victory --> LevelSelect
 
     
@@ -142,8 +142,8 @@ flowchart TD
   input -->|"Switch Character"| switch[Switch Between Fox & Crow]
 
   %% --- Character Abilities ---
-  switch --> fox[🦊 Fox: Double Jump, Push/Pull Box]
-  switch --> crow[🐦 Crow: Fly, Carry Light Box]
+  switch --> fox[Fox: Double Jump, Push/Pull Box]
+  switch --> crow[Crow: Fly, Carry Light Box]
 
   %% --- Puzzle System ---
   move --> puzzle{Puzzle Interaction}
@@ -182,55 +182,64 @@ flowchart TD
 classDiagram
     %% --- Core Gameplay ---
     class PlayerController {
-        +OnJump()
-        +OnDash()
-        +OnSlide()
-        +OnWallJump()
-        +OnAbilityUnlocked(abilityName: string)
+        +Move(direction: Vector2)
+        +Jump()
+        +SwitchCharacter()
     }
 
-    class TeleportManager {
-        +OnTeleportStart()
-        +OnTeleportComplete()
+    class Fox {
+        +DoubleJump()
+        +PushBox()
+        +PullBox()
     }
 
-    class Teleporter {
-        +OnPlayerEnter()
-        +OnPlayerExit()
+    class Crow {
+        +Fly()
+        +CarryBox(weight: float)
     }
 
-    class MovingTeleporter {
-        +OnReachWaypoint(index: int)
+    class PuzzleSystem {
+        +ActivateLever()
+        +PressButton()
+        +OpenDoor()
     }
 
-    class DirectionalBooster {
-        +OnBoostApplied(direction: vector2, force: float)
+    class Box {
+        +Move()
+        +IsCarryable(): bool
     }
 
-    %% --- Systems ---
+    class FlipSystem {
+        +TriggerFlip()
+        +RotateLevel()
+    }
+
+    %% --- Game Flow & UI ---
     class GameManager {
-        +OnLevelStart(levelName: string)
-        +OnLevelComplete(levelName: string)
-        +OnPlayerDeath()
+        +StartLevel(levelName: string)
+        +CompleteLevel()
+    }
+
+    class UIManager {
+        +ShowPauseMenu()
+        +ShowVictoryScreen()
     }
 
     class AudioManager {
-        +OnPlayBGM(trackName: string)
-        +OnPlaySFX(effectName: string)
+        +PlayBGM(trackName: string)
+        +PlaySFX(effectName: string)
     }
 
-    class SaveSystem {
-        +OnSave(slot: int)
-        +OnLoad(slot: int)
-    }
-
-    %% --- Relations (who emits what) ---
-    PlayerController --> TeleportManager : emits
-    PlayerController --> DirectionalBooster : triggers
-    TeleportManager --> Teleporter : controls
-    GameManager --> SaveSystem : calls
-    GameManager --> AudioManager : triggers
-
+    %% --- Relations ---
+    PlayerController --> Fox : controls
+    PlayerController --> Crow : controls
+    PlayerController --> PuzzleSystem : interacts
+    Fox --> Box : pushes/pulls
+    Crow --> Box : carries
+    PuzzleSystem --> Box : requires
+    FlipSystem --> PuzzleSystem : flips
+    FlipSystem --> Fox : flips
+    FlipSystem -
 
 
 ```
