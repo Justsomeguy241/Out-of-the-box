@@ -142,7 +142,7 @@ flowchart TD
   input -->|"Switch Character"| switch[Switch Between Fox & Crow]
 
   %% --- Character Abilities ---
-  switch --> fox[Fox: Double Jump, Push/Pull Box]
+  switch --> fox[Fox: Wall Jump, Push/Pull Box]
   switch --> crow[Crow: Fly, Carry Light Box]
 
   %% --- Puzzle System ---
@@ -188,7 +188,7 @@ classDiagram
     }
 
     class Fox {
-        +DoubleJump()
+        +WallJump()
         +PushBox()
         +PullBox()
     }
