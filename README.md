@@ -249,19 +249,3 @@ classDiagram
 
 
 <br>
-
-
-
-
-
-<br>
-
-## Play The Game
-
-<a href="#">Play Now</a>
-<br>
-
-
-
-
-![Platform Demo](https://raw.githubusercontent.com/adxze/adxze/main/PlatfromSlide.png)
