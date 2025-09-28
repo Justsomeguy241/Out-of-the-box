@@ -239,7 +239,10 @@ classDiagram
     PuzzleSystem --> Box : requires
     FlipSystem --> PuzzleSystem : flips
     FlipSystem --> Fox : flips
-    FlipSystem -
+    FlipSystem --> Crow : flips
+    GameManager --> UIManager : manages
+    GameManager --> AudioManager : triggers
+    GameManager --> FlipSystem : activates
 
 
 ```
