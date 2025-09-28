@@ -47,68 +47,45 @@ flowchart LR
 
 ```mermaid
 graph TD
-    %% Initialization & Menus
-    Start([Game Start])
-    Boot[Boot Layer]
-    MM[Main Menu]
-    Settings[Settings]
-    LevelSelect[Level Select]
+ %% Initialization
+    Start([Game Start]) --> Boot[Boot Layer] --> MM[Main Menu]
 
-    %% Gameplay Core
-    GP[Gameplay Scene]
-    Switch[Character Switching System]
-    Puzzle[Puzzle & Physics System]
-    Platforming[Platforming System]
-    Flip[Level Flip System]
-
-    %% Characters
-    Fox[Fox Abilities<br/>Double Jump, Push/Pull]
-    Crow[Crow Abilities<br/>Fly, Carry Boxes]
-
-    %% UI & States
-    Pause[Pause Menu]
-    Victory[Victory Screen]
-
-    %% Level Progression
-    Tutorial[Tutorial Level]
-    Level1[Level 1]
-    Level2[Level 2]
-    Level3[Level 3]
-
-    %% Flows
-    Start --> Boot --> MM
-    MM -->|Settings| Settings
-    MM -->|Level Select| LevelSelect
+    %% Main Menu Options
+    MM -->|Settings| Settings[⚙ Settings]
+    MM -->|Level Select| LevelSelect[🎮 Level Select]
     Settings --> MM
 
-    %% Level Select leads to any level
-    LevelSelect --> Tutorial
-    LevelSelect --> Level1
-    LevelSelect --> Level2
-    LevelSelect --> Level3
+    %% Level Select -> Levels
+    LevelSelect --> Tutorial[Tutorial Level]
+    LevelSelect --> Level1[Level 1]
+    LevelSelect --> Level2[Level 2]
+    LevelSelect --> Level3[Level 3]
 
-    %% Levels connect to Gameplay
-    Tutorial --> GP
+    %% Levels flow into Gameplay
+    Tutorial --> GP[Gameplay Scene]
     Level1 --> GP
     Level2 --> GP
     Level3 --> GP
-    GP --> Victory
-    Victory --> LevelSelect
 
     %% Gameplay Systems
-    GP --> Switch
-    Switch --> Fox
-    Switch --> Crow
-    GP --> Puzzle
-    GP --> Platforming
-    GP --> Flip
+    GP --> Switch[🔄 Character Switching]
+    GP --> Puzzle[🧩 Puzzle & Physics]
+    GP --> Platforming[🦊 Platforming System]
+    GP --> Flip[↔ Level Flip System]
 
-    %% Pause Menu
-    GP --> Pause
+    %% Characters
+    Switch --> Fox[Fox: Double Jump, Push/Pull]
+    Switch --> Crow[Crow: Fly, Carry Boxes]
+
+    %% Pause
+    GP --> Pause[⏸ Pause Menu]
     Pause -->|Resume| GP
     Pause -->|Main Menu| MM
 
-
+    %% End Flow
+    GP --> Victory[🏆 Victory Screen]
+    Victory --> LevelSelect
+    
 ```
 
 
