@@ -153,7 +153,7 @@ flowchart TD
   start --> menu{Main Menu}
   menu -->|"Select Level"| level[Load Chosen Level]
   menu -->|"Settings"| settings[Adjust Audio/Preferences]
-  menu -->|"Quit"| end([Exit Game])
+  menu -->|"Quit"| quit([Exit Game])
   settings --> menu
 
   %% Gameplay Core
@@ -188,6 +188,7 @@ flowchart TD
 
   complete --> backToSelect[Return to Level Select]
   backToSelect --> menu
+
 
 
 ```
