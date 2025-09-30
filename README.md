@@ -43,7 +43,7 @@ flowchart LR
   pm -- "Resume" --> gp
   ls -- "Select Level" --> gp
   ls -- "Back" --> mm
-  pm -- "Exit' --> mm
+  pm -- "Exit" --> mm
 
 ```
 ## Layer / Module Design 
