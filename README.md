@@ -35,16 +35,14 @@ flowchart LR
   vs[Victory Screen]
   pm[Pause Menu]
   ls[Level Select]
-  sm[Settings]
 
   mm -- "Click Play" --> ls
-  mm -- "Click Settings" --> sm
-  sm -- "Back" --> mm
   gp -- "Finish Level" --> vs
   vs -- "Main Menu" --> mm
   gp -- "Pause" --> pm
   pm -- "Resume" --> gp
   ls -- "Select Level" --> gp
+  ls -- "Back" --> mm
 
    
 
