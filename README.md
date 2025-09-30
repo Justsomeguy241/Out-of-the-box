@@ -39,7 +39,7 @@ flowchart LR
 
   mm -- "Click Play" --> ls
   mm -- "Click Settings" --> sm
-  sm == "Back" --> mm
+  sm -- "Back" --> mm
   gp -- "Finish Level" --> vs
   vs -- "Main Menu" --> mm
   gp -- "Pause" --> pm
