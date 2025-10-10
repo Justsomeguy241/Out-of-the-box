@@ -41,7 +41,9 @@ Personal Contributions
 
 
 
-## Scene Flow 
+<h2>Scene Flow</h2>
+
+<div align="center" style="transform: scale(0.85); transform-origin: top center;">
 
 ```mermaid
 flowchart LR
@@ -61,6 +63,8 @@ flowchart LR
   pm -- "Main Menu" --> mm
 
 ```
+</div> 
+
 ## Layer / Module Design 
 
 ```mermaid
