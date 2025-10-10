@@ -79,23 +79,11 @@ end
 
 %% ========== UI LAYER ==========
 subgraph UI_Layer["UI Layer"]
-    UIElements[All UI Screens<br/>(Menus, HUD, Pause, Victory)]
+    UIElements[All UI Screens (Menus, HUD, Pause, Victory)]
 end
 
 %% ========== INTER-LAYER CONNECTIONS ==========
-Boot_Layer --> System_Layer
-System_Layer --> Gameplay_Layer
-System_Layer --> UI_Layer
-Gameplay_Layer --> System_Layer
-Gameplay_Layer --> UI_Layer
-
-%% Key Manager Links
-InputManager --> UIManager
-UIManager --> UIElements
-GameManager --> UIManager
-PlayerController --> GameManager
-SwitchSystem --> Fox
-SwitchSystem --> Crow
+Boot_La_
 
 ```
 
