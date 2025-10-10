@@ -79,7 +79,7 @@ end
 
 %% ========== UI LAYER ==========
 subgraph UI_Layer["UI Layer"]
-    UIElements[All UI Screens (Menus, HUD, Pause, Victory)]
+    UIElements[All UI Screens - Menus, HUD, Pause, Victory]
 end
 
 %% ========== INTER-LAYER CONNECTIONS ==========
