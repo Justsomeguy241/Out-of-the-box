@@ -51,55 +51,70 @@ flowchart LR
 ```mermaid
 graph TD
 
-%% ======================
-%%  BOOT / INITIALIZATION
-%% ======================
-subgraph Boot_Layer["Boot Layer"]
-    BootScene["Boot Scene / Initialization"]
-    ManagersInit["Load Core Managers - Audio, Input, Save"]
-    LoadMainMenu["Load Main Menu Scene"]
-    BootScene --> ManagersInit --> LoadMainMenu
+%% ========== BOOT / INIT ==========
+subgraph Boot_Layer["🧩 Boot Layer"]
+    Boot[Boot Manager]
+    LoadSystems[Load Core Systems]
+    InitScene[Initialize First Scene]
+    Boot --> LoadSystems --> InitScene
 end
 
-%% ======================
-%%  SYSTEM LAYER
-%% ======================
-subgraph System_Layer["System Layer"]
-    InputManager["Input Manager"]
-    AudioManager["Audio Manager"]
-    SceneLoader["Scene Loader"]
+%% ========== SYSTEM LAYER ==========
+subgraph System_Layer["⚙ System Layer"]
+    InputManager[Input Manager]
+    AudioManager[Audio Manager]
+    SaveSystem[Save / Progress Manager]
+    SceneLoader[Scene Loader]
+    UIManager[UI Manager]
+    AudioManager --> SaveSystem
+    InputManager --> UIManager
 end
 
-%% ======================
-%%  GAMEPLAY LAYER
-%% ======================
-subgraph Gameplay_Layer["Gameplay Layer"]
-    PlayerController["Player Controller"]
-    SwitchSystem["Character Switch System"]
-    Fox["Fox Abilities - Double Jump, Push/Pull"]
-    Crow["Crow Abilities - Fly, Carry Boxes"]
-    PuzzleManager["Puzzle & Physics Manager"]
-    Platforming["Platforming System"]
-    GameRules["Level / Objective Logic"]
+%% ========== GAMEPLAY LAYER ==========
+subgraph Gameplay_Layer["🎮 Gameplay Layer"]
+    GameManager[Game Manager]
+    PlayerController[Player Controller]
+    SwitchSystem[Character Switch System]
+    Fox[Fox Controller]
+    Crow[Crow Controller]
+    TeleportSystem[Teleportation System]
+    AbilitySystem[Ability Unlock System]
+    PuzzleSystem[Puzzle / Physics System]
+    PauseMenu[Pause Menu]
+    
+    GameManager --> PlayerController
+    PlayerController --> SwitchSystem
+    SwitchSystem --> Fox
+    SwitchSystem --> Crow
+    PlayerController --> TeleportSystem
+    PlayerController --> AbilitySystem
+    PlayerController --> PuzzleSystem
+    GameManager --> PauseMenu
 end
 
-%% ======================
-%%  UI LAYER
-%% ======================
-subgraph UI_Layer["UI Layer"]
-    MainMenu["Main Menu UI"]
-    LevelSelect["Level Select UI"]
-    PauseMenu["Pause Menu UI"]
-    VictoryScreen["Victory Screen UI"]
-    SettingsUI["Settings UI"]
+%% ========== UI LAYER ==========
+subgraph UI_Layer["🎨 UI Layer"]
+    MainMenu[Main Menu UI]
+    LevelSelect[Level Select UI]
+    SettingsUI[Settings Menu]
+    PauseUI[Pause Menu UI]
+    VictoryScreen[Victory / End Screen]
+    HUD[In-Game HUD]
+    
+    MainMenu --> LevelSelect
+    MainMenu --> SettingsUI
+    LevelSelect --> SceneLoader
+    PauseUI --> GameManager
+    HUD --> PlayerController
+    SettingsUI --> AudioManager
+    VictoryScreen --> LevelSelect
 end
 
-%% ======================
-%%  CONNECTIONS BETWEEN LAYERS
-%% ======================
+%% ========== CONNECTIONS BETWEEN LAYERS ==========
 Boot_Layer --> System_Layer
 System_Layer --> Gameplay_Layer
 Gameplay_Layer --> UI_Layer
+UI_Layer --> System_Layer
 
 
 ```
