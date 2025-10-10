@@ -67,7 +67,6 @@ end
 subgraph System_Layer["System Layer"]
     InputManager["Input Manager"]
     AudioManager["Audio Manager"]
-    SaveSystem["Save / Progress System"]
     SceneLoader["Scene Loader"]
 end
 
