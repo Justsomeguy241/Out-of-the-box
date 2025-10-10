@@ -31,10 +31,11 @@ Personal Contributions
 <table>
   <tr>
     <td align="left" width="50%">
-      <img width="100%" alt="gif1" src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif">
+      <img width="60%" alt="gif1" src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif">
     </td>
   </tr>
 </table>
+
 
 ## Scene Flow 
 
