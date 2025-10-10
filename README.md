@@ -52,7 +52,7 @@ flowchart LR
 graph TD
 
 %% ========== BOOT / INIT ==========
-subgraph Boot_Layer["🧩 Boot Layer"]
+subgraph Boot_Layer["Boot Layer"]
     Boot[Boot Manager]
     LoadSystems[Load Core Systems]
     InitScene[Initialize First Scene]
@@ -63,15 +63,13 @@ end
 subgraph System_Layer["⚙ System Layer"]
     InputManager[Input Manager]
     AudioManager[Audio Manager]
-    SaveSystem[Save / Progress Manager]
     SceneLoader[Scene Loader]
     UIManager[UI Manager]
-    AudioManager --> SaveSystem
     InputManager --> UIManager
 end
 
 %% ========== GAMEPLAY LAYER ==========
-subgraph Gameplay_Layer["🎮 Gameplay Layer"]
+subgraph Gameplay_Layer["Gameplay Layer"]
     GameManager[Game Manager]
     PlayerController[Player Controller]
     SwitchSystem[Character Switch System]
@@ -89,7 +87,7 @@ subgraph Gameplay_Layer["🎮 Gameplay Layer"]
 end
 
 %% ========== UI LAYER ==========
-subgraph UI_Layer["🎨 UI Layer"]
+subgraph UI_Layer["UI Layer"]
     MainMenu[Main Menu UI]
     LevelSelect[Level Select UI]
     SettingsUI[Settings Menu]
