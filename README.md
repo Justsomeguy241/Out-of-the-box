@@ -59,14 +59,12 @@ subgraph Boot_Layer["Boot Layer"]
     Boot --> LoadSystems --> InitScene
 end
 
-%% SYSTEM LAYER
+%% ========== SYSTEM LAYER ==========
 subgraph System_Layer["System Layer"]
     InputManager[Input Manager]
     AudioManager[Audio Manager]
     SceneLoader[Scene Loader]
     UIManager[UI Manager]
-    InputManager --> UIManager
-    UIManager --> AudioManager
 end
 
 %% ========== GAMEPLAY LAYER ==========
@@ -76,48 +74,28 @@ subgraph Gameplay_Layer["Gameplay Layer"]
     SwitchSystem[Character Switch System]
     Fox[Fox Controller]
     Crow[Crow Controller]
-    PuzzleSystem[Puzzle / Physics System]
-    PauseMenu[Pause Menu]
-    
-    GameManager --> PlayerController
-    PlayerController --> SwitchSystem
-    SwitchSystem --> Fox
-    SwitchSystem --> Crow
-    PlayerController --> PuzzleSystem
-    GameManager --> PauseMenu
+    PuzzleSystem[Puzzle System]
 end
 
-%% UI LAYER
+%% ========== UI LAYER ==========
 subgraph UI_Layer["UI Layer"]
-    MainMenu[Main Menu UI]
-    LevelSelect[Level Select UI]
-    SettingsUI[Settings Menu]
-    PauseUI[Pause Menu UI]
-    VictoryScreen[Victory / End Screen]
-    HUD[In-Game HUD]
-    
-    MainMenu --> LevelSelect
-    MainMenu --> SettingsUI
-    LevelSelect --> SceneLoader
-    PauseUI --> GameManager
-    HUD --> PlayerController
-    SettingsUI --> AudioManager
-    VictoryScreen --> LevelSelect
-
-  %% UI Manager controls these
-    UIManager --> MainMenu
-    UIManager --> LevelSelect
-    UIManager --> SettingsUI
-    UIManager --> PauseUI
-    UIManager --> VictoryScreen
-    UIManager --> HUD
+    UIElements[All UI Screens<br/>(Menus, HUD, Pause, Victory)]
 end
 
-%% ========== CONNECTIONS BETWEEN LAYERS ==========
+%% ========== INTER-LAYER CONNECTIONS ==========
 Boot_Layer --> System_Layer
 System_Layer --> Gameplay_Layer
+System_Layer --> UI_Layer
+Gameplay_Layer --> System_Layer
 Gameplay_Layer --> UI_Layer
-UI_Layer --> System_Layer
+
+%% Key Manager Links
+InputManager --> UIManager
+UIManager --> UIElements
+GameManager --> UIManager
+PlayerController --> GameManager
+SwitchSystem --> Fox
+SwitchSystem --> Crow
 
 ```
 
