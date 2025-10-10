@@ -54,44 +54,45 @@ graph TD
 %% ======================
 %%  BOOT / INITIALIZATION
 %% ======================
-subgraph Boot_Layer[🧩 Boot Layer]
-    BootScene[Boot Scene / Initialization]
-    BootScene --> ManagersInit[Load Core Managers (Audio, Input, Save)]
-    BootScene --> LoadMainMenu[Load Main Menu Scene]
+subgraph Boot_Layer["🧩 Boot Layer"]
+    BootScene["Boot Scene / Initialization"]
+    ManagersInit["Load Core Managers - Audio, Input, Save"]
+    LoadMainMenu["Load Main Menu Scene"]
+    BootScene --> ManagersInit --> LoadMainMenu
 end
 
 %% ======================
 %%  SYSTEM LAYER
 %% ======================
-subgraph System_Layer[⚙ System Layer]
-    InputManager[Input Manager]
-    AudioManager[Audio Manager]
-    SaveSystem[Save / Progress System]
-    SceneLoader[Scene Loader]
+subgraph System_Layer["⚙ System Layer"]
+    InputManager["Input Manager"]
+    AudioManager["Audio Manager"]
+    SaveSystem["Save / Progress System"]
+    SceneLoader["Scene Loader"]
 end
 
 %% ======================
 %%  GAMEPLAY LAYER
 %% ======================
-subgraph Gameplay_Layer[🎮 Gameplay Layer]
-    PlayerController[Player Controller]
-    SwitchSystem[Character Switch System]
-    Fox[Fox Abilities (Double Jump, Push/Pull)]
-    Crow[Crow Abilities (Fly, Carry Boxes)]
-    PuzzleManager[Puzzle / Physics Manager]
-    Platforming[Platforming System]
-    GameRules[Level / Objective Logic]
+subgraph Gameplay_Layer["🎮 Gameplay Layer"]
+    PlayerController["Player Controller"]
+    SwitchSystem["Character Switch System"]
+    Fox["Fox Abilities - Double Jump, Push/Pull"]
+    Crow["Crow Abilities - Fly, Carry Boxes"]
+    PuzzleManager["Puzzle & Physics Manager"]
+    Platforming["Platforming System"]
+    GameRules["Level / Objective Logic"]
 end
 
 %% ======================
 %%  UI LAYER
 %% ======================
-subgraph UI_Layer[🎨 UI Layer]
-    MainMenu[Main Menu UI]
-    LevelSelect[Level Select UI]
-    PauseMenu[Pause Menu UI]
-    VictoryScreen[Victory Screen UI]
-    SettingsUI[Settings UI]
+subgraph UI_Layer["🎨 UI Layer"]
+    MainMenu["Main Menu UI"]
+    LevelSelect["Level Select UI"]
+    PauseMenu["Pause Menu UI"]
+    VictoryScreen["Victory Screen UI"]
+    SettingsUI["Settings UI"]
 end
 
 %% ======================
@@ -100,6 +101,7 @@ end
 Boot_Layer --> System_Layer
 System_Layer --> Gameplay_Layer
 Gameplay_Layer --> UI_Layer
+
 
 ```
 
