@@ -131,24 +131,27 @@ graph TD
 
 ## Modules and Features
 
-The advanced 2D platformer mechanics including progressive ability unlocks, teleportation system, level management, and dynamic audio are powered by a comprehensive scripting system that creates a unique gameplay experience.
+The advanced 2D platformer systems — including character switching, puzzle interactions, level progression, and dynamic audio — are powered by a modular scripting structure.
+Each module is responsible for managing specific aspects of gameplay, UI, or global systems to ensure smooth transitions and responsive player control.
 
-| 📂 Name                    | 🎬 Scene      | 📋 Responsibility                                                                                                                                       |
-| -------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **GameManager**            | **Gameplay**  | - Oversees game state (playing, paused, level complete)<br/>- Connects systems like level completion and transitions                                    |
-| **AudioManager**           | **Global**    | - Handles background music (OST) and sound effects (SFX)<br/>- Controls volume and muting                                                               |
-| **MainMenu**               | **Main Menu** | - Displays the main menu UI<br/>- Lets player choose Tutorial, Level 1, Level 2, or Level 3<br/>- Provides buttons for starting, settings, and quitting |
-| **OptionsPanel**           | **Main Menu** | - Adjusts audio settings<br/>- Applies user preferences                                                                                                 |
-| **Levels Panel**           | **Main Menu** | - Level selection screen<br/>- Directly loads the chosen level                                                                                          |
-| **Canvas / UI (Gameplay)** | **Gameplay**  | - Displays HUD elements<br/>- Shows panels like **LevelCompletePanel** and Pause Menu                                                                   |
-| **Rotator (Flip System)**  | **Gameplay**  | - Handles level flipping/rotation<br/>- Dynamically changes the layout and reveals new routes                                                           |
-| **Puzzle Objects (Grid)**  | **Gameplay**  | - Contains puzzle elements:<br/>PopupWalls, Levers, Buttons, Doors<br/>- Reacts to player interactions to unlock paths                                  |
-| **LargeMoveableBox**       | **Gameplay**  | - Heavy interactable object<br/>- Can be pushed/pulled by the Fox<br/>- Too heavy for the Crow                                                          |
-| **SmallTrash**             | **Gameplay**  | - Light objects<br/>- Can be carried by the Crow                                                                                                        |
-| **Fox**                    | **Gameplay**  | - Playable character<br/>- Wall jump, push, pull objects                                                                                              |
-| **Crow**                   | **Gameplay**  | - Playable character<br/>- Fly and carry light objects                                                                                                  |
-| **FoxAndCrowDetector**     | **Gameplay**  | - Detects when both characters reach the exit<br/>- Triggers level completion                                                                           |
-| **ExitDoorR**              | **Gameplay**  | - Level exit<br/>- Works with FoxAndCrowDetector to trigger victory state                                                                               |
+| 📂 **Name**                 | 🎬 **Scene / Scope** | 📋 **Responsibility**                                                                                                                                    |
+| --------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **GameManager**             | **Gameplay**         | - Controls overall game state (playing, paused, level complete, failed)<br/>- Coordinates transitions between menus, levels, and victory screens         |
+| **AudioManager**            | **Global**           | - Manages background music (OST) and sound effects (SFX)<br/>- Handles audio settings such as volume and mute controls                                   |
+| **MainMenu**                | **Main Menu**        | - Displays the main menu interface<br/>- Provides access to level selection, settings, and exit options                                                  |
+| **OptionsPanel**            | **Main Menu**        | - Adjusts and applies user preferences (e.g., audio volume)<br/>- Saves settings for future sessions                                                     |
+| **LevelsPanel**             | **Main Menu**        | - Handles level selection<br/>- Loads the selected scene or level into gameplay                                                                          |
+| **Canvas / UI (Gameplay)**  | **Gameplay**         | - Manages on-screen UI elements such as HUD, pause menu, and level complete screens<br/>- Displays player feedback and progress indicators               |
+| **Rotator (Flip System)**   | **Gameplay**         | - Handles level rotation mechanics<br/>- Dynamically alters the environment to reveal new paths or puzzle solutions                                      |
+| **Puzzle Objects (Grid)**   | **Gameplay**         | - Manages interactable puzzle elements (e.g., levers, doors, buttons, pop-up walls)<br/>- Responds to player interactions and triggers logical responses |
+| **LargeMoveableBox**        | **Gameplay**         | - Heavy interactable object<br/>- Can be pushed or pulled by the **Fox** but not lifted<br/>- Used in environmental puzzles                              |
+| **SmallTrash**              | **Gameplay**         | - Lightweight object<br/>- Can be picked up and carried by the **Crow** to solve certain puzzles                                                         |
+| **Fox**                     | **Gameplay**         | - Playable character focused on strength-based actions<br/>- Can wall-jump, push, and pull heavy objects                                                 |
+| **Crow**                    | **Gameplay**         | - Playable character focused on agility<br/>- Can fly and carry light objects to assist in puzzle-solving                                                |
+| **Character Switch System** | **Gameplay**         | - Handles input-based switching between the Fox and the Crow<br/>- Ensures smooth transitions while retaining control context                            |
+| **FoxAndCrowDetector**      | **Gameplay**         | - Detects when both Fox and Crow reach the exit area<br/>- Triggers level completion event through **GameManager**                                       |
+| **ExitDoorR**               | **Gameplay**         | - Represents the exit point of each level<br/>- Works with **FoxAndCrowDetector** to activate victory conditions                                         |
+
 
 
 
