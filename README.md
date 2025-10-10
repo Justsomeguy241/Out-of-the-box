@@ -29,7 +29,7 @@ Personal Contributions
 
 
 <div align="center">
-  <table width="60%" style="border-collapse: collapse; border: 2px solid #ccc;">
+  <table width="40%" style="border-collapse: collapse; border: 2px solid #ccc;">
     <tr>
       <td align="center" style="padding: 0;">
         <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif" alt="Fox gameplay demo" width="100%">
