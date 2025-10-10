@@ -8,8 +8,8 @@ Muhammad Rafi R (Game Developer)
 Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. You can switch between the fox and crow to get through levels, each bringing their own strengths to help you along the way.The game mixes puzzle-solving and platforming, pushing you to figure out how to use both characters together to progress.
 <br>
 
-## Key Features
-
+## Key Features & Personal Contributions
+Core Gameplay Features
 - **Character Switching** — Swap between the fox and the crow anytime to tackle puzzles and platforming challenges.  
 - **Unique Abilities**  
   - **Fox:** double jump, push & pull boxes to clear paths or reach new areas.  
@@ -17,6 +17,16 @@ Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. Y
 - **Dynamic Levels** — Reach a trigger point and the level flips/turns, changing its shape and look and revealing new routes and puzzles.  
 - **Puzzle & Platforming Mix** — Thoughtful puzzles combined with skill-based platforming.  
 - **Teamwork Gameplay** — Combine both characters' abilities to solve puzzles and progress.
+
+Personal Contributions
+
+| 🧠 Feature / Area                 | 📝 Description                                                                                                        | ⏱️ Time Spent |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
+| **Character Movement System**     | Implemented the basic 2D movement system for both Fox and Crow, including walking, jumping, and character switching.  | ~4 hours      |
+| **Fox Abilities**                 | Designed and programmed all Fox-specific mechanics: double jump, box pushing, and pulling using physics interactions. | ~5 hours      |
+| **Level Design (Playable Level)** | Created one fully playable level combining platforming and puzzle mechanics for gameplay testing.                     | ~3 hours      |
+| **Trigger Button System**         | Developed the on-trigger button system that activates puzzle elements such as doors and moving platforms.             | ~4 hours      |
+
 
 <table>
   <tr>
