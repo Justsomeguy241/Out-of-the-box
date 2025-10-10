@@ -77,8 +77,6 @@ subgraph Gameplay_Layer["🎮 Gameplay Layer"]
     SwitchSystem[Character Switch System]
     Fox[Fox Controller]
     Crow[Crow Controller]
-    TeleportSystem[Teleportation System]
-    AbilitySystem[Ability Unlock System]
     PuzzleSystem[Puzzle / Physics System]
     PauseMenu[Pause Menu]
     
@@ -86,8 +84,6 @@ subgraph Gameplay_Layer["🎮 Gameplay Layer"]
     PlayerController --> SwitchSystem
     SwitchSystem --> Fox
     SwitchSystem --> Crow
-    PlayerController --> TeleportSystem
-    PlayerController --> AbilitySystem
     PlayerController --> PuzzleSystem
     GameManager --> PauseMenu
 end
@@ -115,7 +111,6 @@ Boot_Layer --> System_Layer
 System_Layer --> Gameplay_Layer
 Gameplay_Layer --> UI_Layer
 UI_Layer --> System_Layer
-
 
 ```
 
