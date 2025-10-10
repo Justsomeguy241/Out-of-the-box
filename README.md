@@ -240,7 +240,7 @@ flowchart TD
 
 
 ```mermaid
-%%{init: {'theme':'neutral', 'scale': 0.7}}%%
+%%{init: {'theme':'neutral', 'scale': 0.1}}%%
 classDiagram
     class PlayerController {
         +Move(direction: Vector2)
