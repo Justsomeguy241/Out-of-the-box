@@ -28,13 +28,15 @@ Personal Contributions
 | **Trigger Button System**         | Developed the on-trigger button system that activates puzzle elements such as doors and platforms.                    | ~4 hours      |
 
 
-<table>
-  <tr>
-    <td align="center" width="100%">
-      <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif" width="60%" alt="Fox gameplay demo">
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <table width="60%" style="border-collapse: collapse; border: 2px solid #ccc;">
+    <tr>
+      <td align="center" style="padding: 0;">
+        <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif" alt="Fox gameplay demo" width="100%">
+      </td>
+    </tr>
+  </table>
+</div>
 
 
 
