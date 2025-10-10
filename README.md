@@ -54,7 +54,7 @@ graph TD
 %% ======================
 %%  BOOT / INITIALIZATION
 %% ======================
-subgraph Boot_Layer["🧩 Boot Layer"]
+subgraph Boot_Layer["Boot Layer"]
     BootScene["Boot Scene / Initialization"]
     ManagersInit["Load Core Managers - Audio, Input, Save"]
     LoadMainMenu["Load Main Menu Scene"]
@@ -64,7 +64,7 @@ end
 %% ======================
 %%  SYSTEM LAYER
 %% ======================
-subgraph System_Layer["⚙ System Layer"]
+subgraph System_Layer["System Layer"]
     InputManager["Input Manager"]
     AudioManager["Audio Manager"]
     SaveSystem["Save / Progress System"]
@@ -74,7 +74,7 @@ end
 %% ======================
 %%  GAMEPLAY LAYER
 %% ======================
-subgraph Gameplay_Layer["🎮 Gameplay Layer"]
+subgraph Gameplay_Layer["Gameplay Layer"]
     PlayerController["Player Controller"]
     SwitchSystem["Character Switch System"]
     Fox["Fox Abilities - Double Jump, Push/Pull"]
@@ -87,7 +87,7 @@ end
 %% ======================
 %%  UI LAYER
 %% ======================
-subgraph UI_Layer["🎨 UI Layer"]
+subgraph UI_Layer["UI Layer"]
     MainMenu["Main Menu UI"]
     LevelSelect["Level Select UI"]
     PauseMenu["Pause Menu UI"]
