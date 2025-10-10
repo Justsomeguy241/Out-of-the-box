@@ -83,7 +83,19 @@ subgraph UI_Layer["UI Layer"]
 end
 
 %% ========== INTER-LAYER CONNECTIONS ==========
-Boot_La_
+Boot_Layer --> System_Layer
+System_Layer --> Gameplay_Layer
+System_Layer --> UI_Layer
+Gameplay_Layer --> System_Layer
+Gameplay_Layer --> UI_Layer
+
+%% Key Manager Links
+InputManager --> UIManager
+UIManager --> UIElements
+GameManager --> UIManager
+PlayerController --> GameManager
+SwitchSystem --> Fox
+SwitchSystem --> Crow
 
 ```
 
