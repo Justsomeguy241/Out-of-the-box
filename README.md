@@ -74,12 +74,15 @@ subgraph Gameplay_Layer["Gameplay Layer"]
     SwitchSystem[Character Switch System]
     Fox[Fox Controller]
     Crow[Crow Controller]
-    PuzzleSystem[Puzzle System]
+    PuzzleSystem[Puzzle / Physics System]
 end
 
 %% ========== UI LAYER ==========
 subgraph UI_Layer["UI Layer"]
-    UIElements[All UI Screens - Menus, HUD, Pause, Victory]
+    MainMenu[Main Menu UI]
+    PauseUI[Pause Menu UI]
+    HUD[In-Game HUD]
+    VictoryUI[Victory / End Screen]
 end
 
 %% ========== INTER-LAYER CONNECTIONS ==========
@@ -89,14 +92,29 @@ System_Layer --> UI_Layer
 Gameplay_Layer --> System_Layer
 Gameplay_Layer --> UI_Layer
 
-%% Key Manager Links
+%% ==== SYSTEM CONNECTIONS ====
 InputManager --> UIManager
-UIManager --> UIElements
-GameManager --> UIManager
-PlayerController --> GameManager
+InputManager --> PlayerController
+UIManager --> AudioManager
+UIManager --> MainMenu
+UIManager --> PauseUI
+UIManager --> HUD
+UIManager --> VictoryUI
+
+%% ==== GAMEPLAY CONNECTIONS ====
+GameManager --> PlayerController
+GameManager --> PuzzleSystem
+PlayerController --> SwitchSystem
 SwitchSystem --> Fox
 SwitchSystem --> Crow
-PlayerController --> SwitchSystem
+PlayerController --> PuzzleSystem
+GameManager --> UIManager
+PuzzleSystem --> GameManager
+
+%% ==== UI CONNECTIONS ====
+PauseUI --> GameManager
+HUD --> PlayerController
+VictoryUI --> GameManager
 
 ```
 
