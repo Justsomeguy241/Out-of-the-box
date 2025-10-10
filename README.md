@@ -240,8 +240,8 @@ flowchart TD
 
 
 ```mermaid
+%%{init: {'theme':'neutral', 'scale': 0.7}}%%
 classDiagram
-    %% --- Core Gameplay ---
     class PlayerController {
         +Move(direction: Vector2)
         +Jump()
@@ -275,7 +275,6 @@ classDiagram
         +RotateLevel()
     }
 
-    %% --- Game Flow & UI ---
     class GameManager {
         +StartLevel(levelName: string)
         +CompleteLevel()
@@ -291,7 +290,6 @@ classDiagram
         +OnPlaySFX(effectName: string)
     }
 
-    %% --- Relations ---
     PlayerController --> Fox : controls
     PlayerController --> Crow : controls
     PlayerController --> PuzzleSystem : interacts
@@ -304,7 +302,6 @@ classDiagram
     GameManager --> UIManager : manages
     GameManager --> AudioManager : triggers
     GameManager --> FlipSystem : activates
-
 
 ```
 
