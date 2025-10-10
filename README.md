@@ -51,14 +51,18 @@ flowchart LR
 ```mermaid
 graph TD
 
-BOOT / INITIALIZATION
+%% ======================
+%%  BOOT / INITIALIZATION
+%% ======================
 subgraph Boot_Layer[🧩 Boot Layer]
     BootScene[Boot Scene / Initialization]
     BootScene --> ManagersInit[Load Core Managers (Audio, Input, Save)]
     BootScene --> LoadMainMenu[Load Main Menu Scene]
 end
 
+%% ======================
 %%  SYSTEM LAYER
+%% ======================
 subgraph System_Layer[⚙ System Layer]
     InputManager[Input Manager]
     AudioManager[Audio Manager]
