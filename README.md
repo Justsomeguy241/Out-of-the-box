@@ -96,6 +96,7 @@ GameManager --> UIManager
 PlayerController --> GameManager
 SwitchSystem --> Fox
 SwitchSystem --> Crow
+PlayerController --> SwitchSystem
 
 ```
 
