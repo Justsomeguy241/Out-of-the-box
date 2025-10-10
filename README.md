@@ -59,13 +59,14 @@ subgraph Boot_Layer["Boot Layer"]
     Boot --> LoadSystems --> InitScene
 end
 
-%% ========== SYSTEM LAYER ==========
+%% SYSTEM LAYER
 subgraph System_Layer["System Layer"]
     InputManager[Input Manager]
     AudioManager[Audio Manager]
     SceneLoader[Scene Loader]
     UIManager[UI Manager]
     InputManager --> UIManager
+    UIManager --> AudioManager
 end
 
 %% ========== GAMEPLAY LAYER ==========
@@ -86,7 +87,7 @@ subgraph Gameplay_Layer["Gameplay Layer"]
     GameManager --> PauseMenu
 end
 
-%% ========== UI LAYER ==========
+%% UI LAYER
 subgraph UI_Layer["UI Layer"]
     MainMenu[Main Menu UI]
     LevelSelect[Level Select UI]
@@ -102,6 +103,14 @@ subgraph UI_Layer["UI Layer"]
     HUD --> PlayerController
     SettingsUI --> AudioManager
     VictoryScreen --> LevelSelect
+
+  %% UI Manager controls these
+    UIManager --> MainMenu
+    UIManager --> LevelSelect
+    UIManager --> SettingsUI
+    UIManager --> PauseUI
+    UIManager --> VictoryScreen
+    UIManager --> HUD
 end
 
 %% ========== CONNECTIONS BETWEEN LAYERS ==========
