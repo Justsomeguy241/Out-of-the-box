@@ -49,70 +49,82 @@ flowchart LR
 ## Layer / Module Design 
 
 ```mermaid
+---
+config:
+  theme: neutral
+  look: neo
+---
 graph TD
+    %% ====== INITIALIZATION ======
+    subgraph "Initialization Phase"
+        Start([Game Start])
+        BootNote([Boot Sequence:<br/>Load Managers, Systems, and First Scene])
+    end
 
-%% ========== BOOT / INIT ==========
-subgraph Boot_Layer["Boot Layer"]
-    Boot[Boot Manager]
-    LoadSystems[Load Core Systems]
-    InitScene[Initialize First Scene]
-    Boot --> LoadSystems --> InitScene
-end
+    %% ====== CORE SYSTEMS ======
+    subgraph "Core Systems"
+        InputManager[Input Manager]
+        AudioManager[Audio Manager]
+        SceneLoader[Scene Loader]
+        UIManager[UI Manager]
+    end
 
-%% ========== SYSTEM LAYER ==========
-subgraph System_Layer["System Layer"]
-    InputManager[Input Manager]
-    AudioManager[Audio Manager]
-    SceneLoader[Scene Loader]
-    UIManager[UI Manager]
-end
+    %% ====== GAMEPLAY ======
+    subgraph "Gameplay Logic"
+        GameManager[Game Manager]
+        PlayerController[Player Controller]
+        SwitchSystem[Character Switch System]
+        Fox[Fox Controller]
+        Crow[Crow Controller]
+        PuzzleSystem[Puzzle / Physics System]
+    end
 
-%% ========== GAMEPLAY LAYER ==========
-subgraph Gameplay_Layer["Gameplay Layer"]
-    GameManager[Game Manager]
-    PlayerController[Player Controller]
-    SwitchSystem[Character Switch System]
-    Fox[Fox Controller]
-    Crow[Crow Controller]
-    PuzzleSystem[Puzzle / Physics System]
-end
+    %% ====== USER INTERFACE ======
+    subgraph "UI System"
+        MainMenu[Main Menu]
+        PauseMenu[Pause Menu]
+        HUD[In-Game HUD]
+        VictoryScreen[Victory / End Screen]
+        Settings[Settings Menu]
+    end
 
-%% ========== UI LAYER ==========
-subgraph UI_Layer["UI Layer"]
-    MainMenu[Main Menu UI]
-    PauseUI[Pause Menu UI]
-    HUD[In-Game HUD]
-    VictoryUI[Victory / End Screen]
-end
+    %% ====== FLOW CONNECTIONS ======
+    Start --> BootNote
+    BootNote --> InputManager
+    BootNote --> AudioManager
+    BootNote --> SceneLoader
+    BootNote --> UIManager
 
-%% ========== INTER-LAYER CONNECTIONS ==========
-Boot_Layer --> System_Layer
-System_Layer --> Gameplay_Layer
-System_Layer --> UI_Layer
-Gameplay_Layer --> System_Layer
-Gameplay_Layer --> UI_Layer
+    %% Gameplay Links
+    InputManager --> PlayerController
+    PlayerController --> SwitchSystem
+    SwitchSystem --> Fox
+    SwitchSystem --> Crow
+    PlayerController --> PuzzleSystem
+    PuzzleSystem --> GameManager
+    GameManager --> UIManager
 
-%% ==== SYSTEM CONNECTIONS ====
-InputManager --> UIManager
-InputManager --> PlayerController
-UIManager --> UI_Layer
+    %% UI Links
+    UIManager --> MainMenu
+    UIManager --> PauseMenu
+    UIManager --> HUD
+    UIManager --> VictoryScreen
+    UIManager --> Settings
+    MainMenu --> GameManager
+    PauseMenu --> GameManager
+    HUD --> PlayerController
+    VictoryScreen --> MainMenu
 
+    %% Styling
+    classDef initStyle fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef systemStyle fill:#ede7f6,stroke:#4a148c,stroke-width:2px
+    classDef gameplayStyle fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px
+    classDef uiStyle fill:#fff3e0,stroke:#e65100,stroke-width:2px
 
-
-%% ==== GAMEPLAY CONNECTIONS ====
-GameManager --> PlayerController
-GameManager --> PuzzleSystem
-PlayerController --> SwitchSystem
-SwitchSystem --> Fox
-SwitchSystem --> Crow
-PlayerController --> PuzzleSystem
-GameManager --> UIManager
-PuzzleSystem --> GameManager
-
-%% ==== UI CONNECTIONS ====
-PauseUI --> GameManager
-HUD --> PlayerController
-VictoryUI --> GameManager
+    class Start,BootNote initStyle
+    class InputManager,AudioManager,SceneLoader,UIManager systemStyle
+    class GameManager,PlayerController,SwitchSystem,Fox,Crow,PuzzleSystem gameplayStyle
+    class MainMenu,PauseMenu,HUD,VictoryScreen,Settings uiStyle
 
 ```
 
