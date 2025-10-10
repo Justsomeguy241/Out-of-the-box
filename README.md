@@ -95,11 +95,9 @@ Gameplay_Layer --> UI_Layer
 %% ==== SYSTEM CONNECTIONS ====
 InputManager --> UIManager
 InputManager --> PlayerController
-UIManager --> AudioManager
-UIManager --> MainMenu
-UIManager --> PauseUI
-UIManager --> HUD
-UIManager --> VictoryUI
+UIManager --> UI_Layer
+
+
 
 %% ==== GAMEPLAY CONNECTIONS ====
 GameManager --> PlayerController
