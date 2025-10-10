@@ -50,46 +50,53 @@ flowchart LR
 
 ```mermaid
 graph TD
-    %% Initialization
-    Start([Game Start]) --> Boot[Boot Layer] --> MM[Main Menu]
 
-    %% Main Menu Options
-    MM -->|Settings| Settings[⚙ Settings]
-    MM -->|Level Select| LevelSelect[Level Select]
-    Settings --> MM
+BOOT / INITIALIZATION
+subgraph Boot_Layer[🧩 Boot Layer]
+    BootScene[Boot Scene / Initialization]
+    BootScene --> ManagersInit[Load Core Managers (Audio, Input, Save)]
+    BootScene --> LoadMainMenu[Load Main Menu Scene]
+end
 
-    %% Level Select -> Levels
-    LevelSelect --> Tutorial[Tutorial Level]
-    LevelSelect --> Level1[Level 1]
-    LevelSelect --> Level2[Level 2]
-    LevelSelect --> Level3[Level 3]
+%%  SYSTEM LAYER
+subgraph System_Layer[⚙ System Layer]
+    InputManager[Input Manager]
+    AudioManager[Audio Manager]
+    SaveSystem[Save / Progress System]
+    SceneLoader[Scene Loader]
+end
 
-    %% Levels flow into Gameplay
-    Tutorial --> GP[Gameplay Scene]
-    Level1 --> GP
-    Level2 --> GP
-    Level3 --> GP
+%% ======================
+%%  GAMEPLAY LAYER
+%% ======================
+subgraph Gameplay_Layer[🎮 Gameplay Layer]
+    PlayerController[Player Controller]
+    SwitchSystem[Character Switch System]
+    Fox[Fox Abilities (Double Jump, Push/Pull)]
+    Crow[Crow Abilities (Fly, Carry Boxes)]
+    PuzzleManager[Puzzle / Physics Manager]
+    Platforming[Platforming System]
+    GameRules[Level / Objective Logic]
+end
 
-    %% Gameplay Core (Flip as container)
-    GP --> Flip[↔ Level Flip System]
+%% ======================
+%%  UI LAYER
+%% ======================
+subgraph UI_Layer[🎨 UI Layer]
+    MainMenu[Main Menu UI]
+    LevelSelect[Level Select UI]
+    PauseMenu[Pause Menu UI]
+    VictoryScreen[Victory Screen UI]
+    SettingsUI[Settings UI]
+end
 
-    %% Inside Flip System
-    Flip --> Switch[Character Switching]
-    Switch --> Fox[Fox: Double Jump, Push/Pull]
-    Switch --> Crow[Crow: Fly, Carry Boxes]
-    Flip --> Puzzle[Puzzle & Physics]
-    Flip --> Platforming[Platforming System]
+%% ======================
+%%  CONNECTIONS BETWEEN LAYERS
+%% ======================
+Boot_Layer --> System_Layer
+System_Layer --> Gameplay_Layer
+Gameplay_Layer --> UI_Layer
 
-    %% Pause
-    GP --> Pause[⏸ Pause Menu]
-    Pause -->|Resume| GP
-    Pause -->|Main Menu| MM
-
-    %% End Flow
-    GP --> Victory[Victory Screen]
-    Victory --> LevelSelect
-
-    
 ```
 
 
