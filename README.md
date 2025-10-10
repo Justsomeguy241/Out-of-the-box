@@ -267,6 +267,11 @@ classDiagram
         +ShowVictoryScreen()
     }
 
+    class AudioManager {
+        +OnPlayBGM(trackName: string)
+        +OnPlaySFX(effectName: string)
+    }
+
     %% --- Relations ---
     PlayerController --> Fox : controls
     PlayerController --> Crow : controls
