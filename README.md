@@ -22,9 +22,9 @@ Personal Contributions
 
 | 🧠 Feature / Area                 | 📝 Description                                                                                                        | ⏱️ Time Spent |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
-| **Character Movement System**     | Implemented the basic 2D movement system for both Fox and Crow, including walking, jumping, and character switching.  | ~4 hours      |
+| **Character Movement System**     | Implemented the basic 2D movement system for both Fox and Crow, including walking.                                    | ~2 hours      |
 | **Fox Abilities**                 | Designed and programmed all Fox-specific mechanics: double jump, box pushing, and pulling using physics interactions. | ~5 hours      |
-| **Level Design (Playable Level)** | Created one fully playable level combining platforming and puzzle mechanics for gameplay testing.                     | ~3 hours      |
+| **Level Design (Playable Level)** | Created one fully playable level combining platforming and puzzle mechanics for gameplay testing.                     | ~5 hours      |
 | **Trigger Button System**         | Developed the on-trigger button system that activates puzzle elements such as doors and moving platforms.             | ~4 hours      |
 
 
