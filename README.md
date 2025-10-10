@@ -60,7 +60,7 @@ subgraph Boot_Layer["Boot Layer"]
 end
 
 %% ========== SYSTEM LAYER ==========
-subgraph System_Layer["⚙ System Layer"]
+subgraph System_Layer["System Layer"]
     InputManager[Input Manager]
     AudioManager[Audio Manager]
     SceneLoader[Scene Loader]
