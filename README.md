@@ -20,7 +20,7 @@ Core Gameplay Features
 
 Personal Contributions
 
-| 🧠 Feature / Area                 | 📝 Description                                                                                                        | ⏱️ Time Spent |
+| Feature                           | Description                                                                                                           | Time Spent |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
 | **Character Movement System**     | Implemented the basic 2D movement system for both Fox and Crow, including walking.                                    | ~2 hours      |
 | **Fox Abilities**                 | Designed and programmed all Fox-specific mechanics: double jump, box pushing, and pulling using physics interactions. | ~5 hours      |
