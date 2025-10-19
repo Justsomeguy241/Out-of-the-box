@@ -31,6 +31,7 @@ Personal Contributions
 | **Level Design (Playable Level)** | Created one fully playable level combining platforming and puzzle mechanics for gameplay.                             | ~5 hours      |
 | **Button System**                 | Developed the on-trigger and hold button system that activates puzzle elements such as doors and platforms.           | ~4 hours      |
 
+Total Development Time: ~16 hours
 
 <div align="center">
   <table width="30%" style="border-collapse: collapse; border: 2px solid #ccc;">
