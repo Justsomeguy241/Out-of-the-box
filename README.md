@@ -35,7 +35,7 @@ Personal Contributions
         <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif" alt="Fox gameplay demo" width="50%">
       </td>
       <td align="center" style="padding: 0;">
-        <img src="[https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif](https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Recording2025-10-19192458-ezgif.com-video-to-gif-converter.gif)" alt="Fox gameplay demo" width="50%">
+        <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox2.gif" alt="Fox gameplay demo2" width="50%">
       </td>
     </tr>
   </table>
