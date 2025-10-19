@@ -1,9 +1,10 @@
 ## Developer & Contributions
-Muhammad Daffa Alghifari (Game Programmer)
-Louben Eden Wijaya (game programmer)
-Muhammad Rafi Ramadhan (Game programmer)
-Oscar Bagus Putra Penn Klopper (Game artist)
-Eduard Sutanto (Game Designer)
+<p><strong>Muhammad Daffa Alghifari</strong> – Game Programmer<br>
+<strong>Louben Eden Wijaya</strong> – Game Programmer<br>
+<strong>Muhammad Rafi Ramadhan</strong> – Game Programmer<br>
+<strong>Oscar Bagus Putra Penn Klopper</strong> – Game Artist<br>
+<strong>Eduard Sutanto</strong> – Game Designer</p>
+
   <br>
 
 ## About
