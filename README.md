@@ -1,6 +1,9 @@
 ## Developer & Contributions
-
-Muhammad Rafi R (Game Developer)
+Muhammad Daffa Alghifari (Game Programmer)
+Louben Eden Wijaya (game programmer)
+Muhammad Rafi Ramadhan (Game programmer)
+Oscar Bagus Putra Penn Klopper (Game artist)
+Eduard Sutanto (Game Designer)
   <br>
 
 ## About
