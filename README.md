@@ -32,10 +32,10 @@ Personal Contributions
   <table width="30%" style="border-collapse: collapse; border: 2px solid #ccc;">
     <tr>
       <td align="center" style="padding: 0;">
-        <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif" alt="Fox gameplay demo" width="50%">
+        <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox.gif" alt="Fox gameplay demo" width="100%">
       </td>
       <td align="center" style="padding: 0;">
-        <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox2.gif" alt="Fox gameplay demo2" width="50%">
+        <img src="https://github.com/Justsomeguy241/Justsomeguy241/blob/main/Fox2.gif" alt="Fox gameplay demo2" width="100%">
       </td>
     </tr>
   </table>
