@@ -7,12 +7,7 @@
 
   <br>
 
-## About
-
-Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. You can switch between the fox and crow to get through levels, each bringing their own strengths to help you along the way.The game mixes puzzle-solving and platforming, pushing you to figure out how to use both characters together to progress.
-<br>
-
-Personal Contributions
+  Personal Contributions
 
 | Feature                           | Description                                                                                                           | Time Spent |
 | --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
@@ -35,6 +30,11 @@ Total Development Time: ~16 hours
     </tr>
   </table>
 </div>
+
+## About
+
+Out of the Box is a 2D puzzle-platformer where you play as a fox and crow duo. You can switch between the fox and crow to get through levels, each bringing their own strengths to help you along the way.The game mixes puzzle-solving and platforming, pushing you to figure out how to use both characters together to progress.
+<br>
 
 ## Key Features & Personal Contributions
 Core Gameplay Features
