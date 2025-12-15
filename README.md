@@ -5,19 +5,6 @@
 <strong>Oscar Bagus Putra Penn Klopper</strong> – Game Artist<br>
 <strong>Eduard Sutanto</strong> – Game Designer</p>
 
-  <br>
-
-  Personal Contributions
-
-| Feature                           | Description                                                                                                           | Time Spent |
-| --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
-| **Character Movement System**     | Implemented the basic 2D movement system for both Fox and Crow, including walking and jumping.                        | ~2 hours      |
-| **Fox Abilities**                 | Designed and programmed all Fox-specific mechanics: double jump, box pushing, and pulling using physics interactions. | ~5 hours      |
-| **Level Design (Playable Level)** | Created one fully playable level combining platforming and puzzle mechanics for gameplay.                             | ~5 hours      |
-| **Button System**                 | Developed the on-trigger and hold button system that activates puzzle elements such as doors and platforms.           | ~4 hours      |
-
-Total Development Time: ~16 hours
-
 <div align="center">
   <table width="30%" style="border-collapse: collapse; border: 2px solid #ccc;">
     <tr>
@@ -30,6 +17,19 @@ Total Development Time: ~16 hours
     </tr>
   </table>
 </div>
+
+  <br>
+
+  Personal Contributions
+
+| Feature                           | Description                                                                                                           | Time Spent |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------- |
+| **Character Movement System**     | Implemented the basic 2D movement system for both Fox and Crow, including walking and jumping.                        | ~2 hours      |
+| **Fox Abilities**                 | Designed and programmed all Fox-specific mechanics: double jump, box pushing, and pulling using physics interactions. | ~5 hours      |
+| **Level Design (Playable Level)** | Created one fully playable level combining platforming and puzzle mechanics for gameplay.                             | ~5 hours      |
+| **Button System**                 | Developed the on-trigger and hold button system that activates puzzle elements such as doors and platforms.           | ~4 hours      |
+
+Total Development Time: ~16 hours
 
 ## About
 
